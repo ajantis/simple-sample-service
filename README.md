@@ -1,6 +1,10 @@
 Simple Remote Service
 =====================
 
+This simple service is designed to hash strings. That's it: "Hashing-as-a-Service".
+It accepts batch requests with a set of strings to hash.
+
+
 How To Run
 ----------
 
