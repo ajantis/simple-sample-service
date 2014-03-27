@@ -26,11 +26,10 @@ class Worker extends Actor with ActorLogging {
 
   @throws[Exception]("This processing is unstable sometimes")
   private[this] def process(lines: Vector[String]): Vector[String] = {
-
     val start = System.currentTimeMillis()
 
     // delay is proportional to a number of lines
-    Thread.sleep(Random.nextInt(10) * 100 * lines.size) // (100 <-> 1000) * N -> for N lines
+    Thread.sleep(Random.nextInt(10) * 100 * lines.size) // (0 <-> 900) * N ms -> for N lines
 
     val end = System.currentTimeMillis()
 
@@ -42,7 +41,8 @@ class Worker extends Actor with ActorLogging {
       throw new Exception("Something went wrong!")
     } else {
       // Let's calculate some hashes!
-      lines.map(s => MessageDigest.getInstance("MD5").digest(s.getBytes).map(0xFF & _).map { "%02x".format(_) }.foldLeft("") { _ + _ })
+      lines.map(s => MessageDigest.getInstance("MD5").digest(s.getBytes).map(0xFF & _)
+        .map { "%02x".format(_) }.foldLeft("") { _ + _ })
     }
   }
 
