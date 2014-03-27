@@ -24,6 +24,8 @@ POST /api/service
 Accept: application/json
 Body: <Job>
 
+Returns an HTTP 201 (ACCEPTED).
+
 Request Body example:
 
       {
@@ -43,3 +45,13 @@ Response Body example:
             "13ea8b769685089ba2bed4a665a61fde"
         ]
      }
+     
+     
+Exaple of error response: 
+
+HTTP 500 (Service Unavailable)
+
+    {
+        "error": "Something went wrong!"
+    }
+     
