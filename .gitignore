@@ -16,9 +16,6 @@ project/plugins/project/
 # Gradle Specific
 .gradle
 
-#deployment keys
-id_rsa_navcloud_deployment
-
 # NPM dependencies.
 node_modules/
 
